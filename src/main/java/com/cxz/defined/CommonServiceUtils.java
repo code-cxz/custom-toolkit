@@ -54,13 +54,11 @@ public final class CommonServiceUtils {
      * @param <T>        实体类类型
      * @param field      目标查询字段的函数引用（如 User::getUsername）
      * @param fieldValue 查询字段的值
-     * @param service    用于执行查询的服务层对象（可选，用于后续执行 list/query 等）
      * @return 返回构建的 LambdaQueryWrapper 对象，用于进一步查询或修改
      */
     public static <T> LambdaQueryWrapper<T> buildQueryWrapperByField(
             SFunction<T, ?> field,
-            Object fieldValue,
-            IService<T> service
+            Object fieldValue
     ) {
         LambdaQueryWrapper<T> query = new LambdaQueryWrapper<>();
         query.eq(field, fieldValue);
